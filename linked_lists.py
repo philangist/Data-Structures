@@ -1,12 +1,9 @@
 class Node(object):
 
     def __unicode__(self):
-        return '<Node: %s>' % self.data
-
-    def __str__(self):
-        return self.__unicode__().encode('UTF-8')
-
-    __repr__ = __str__
+        return u'%s(data: %s)' % (self.__class__.__name__, self.data)
+    __str__ = __unicode__
+    __repr__ = __unicode__
 
     def __init__(self, data=None):
         self.next = None

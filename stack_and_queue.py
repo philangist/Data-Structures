@@ -4,12 +4,12 @@ from linked_lists import Node
 class Queue(object):
 
     def __unicode__(self):
-        return '<Queue: %s>' % self.items
-
-    def __str__(self):
-        return self.__unicode__().encode('UTF-8')
-
-    __repr__ = __str__
+        return u'%s(items: %s...)' % (
+            self.__class__.__name__,
+            self.items.items()[:5],
+        )
+    __str__ = __unicode__
+    __repr__ = __unicode__
 
     def __init__(self):
         self.items = {}
@@ -22,7 +22,7 @@ class Queue(object):
 
         item = self.items.pop(self.head_pointer)
         self.head_pointer -= 1
-        return  item
+        return item
 
     def push(self, item):
         self.tail_pointer += 1
@@ -32,12 +32,12 @@ class Queue(object):
 class Stack(object):
 
     def __unicode__(self):
-        return '<Stack: %s>' % self.items
-
-    def __str__(self):
-        return self.__unicode__().encode('UTF-8')
-
-    __repr__ = __str__
+        return u'%s(items: %s...)' % (
+            self.__class__.__name__,
+            self.items.items()[:5],
+        )
+    __str__ = __unicode__
+    __repr__ = __unicode__
 
     def __init__(self):
         self.items = []
@@ -60,12 +60,9 @@ class Stack(object):
 class LinkedListStack(object):
 
     def __unicode__(self):
-        return '<LinkedListStack: %s>' % self.data
-
-    def __str__(self):
-        return self.__unicode__().encode('UTF-8')
-
-    __repr__ = __str__
+        return u'%s(head: %s)' % (self.__class__.__name__, self.head)
+    __str__ = __unicode__
+    __repr__ = __unicode__
 
     def __init__(self):
         self.head = None
