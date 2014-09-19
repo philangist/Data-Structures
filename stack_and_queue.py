@@ -21,7 +21,7 @@ class Queue(object):
             return None
 
         item = self.items.pop(self.head_pointer)
-        self.pointer -= 1
+        self.head_pointer -= 1
         return  item
 
     def push(self, item):
